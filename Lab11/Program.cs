@@ -22,25 +22,25 @@ namespace Lab11
                 shouldContinue = false;
 
                     Console.WriteLine("There are 10 movies in this list.");
-                    Console.Write("What category are you interested in?(Animated, Drama, Horror, SciFi) ");
+                    Console.Write("What category are you interested in?(Animated = 1, Drama = 2, Horror = 3, SciFi = 4) ");
                     
                 do
                 {
                     isInputValid = true;
                     input = Console.ReadLine();
-                    if (input.Equals("Animated", StringComparison.InvariantCultureIgnoreCase))
+                    if (input == "1")
                     {
                         DisplayMoviesByCategory("Animated");
                     }
-                    else if (input.Equals("Drama", StringComparison.InvariantCultureIgnoreCase))
+                    else if (input == "2")
                     {
                         DisplayMoviesByCategory("Drama");
                     }
-                    else if (input.Equals("Horror", StringComparison.InvariantCultureIgnoreCase))
+                    else if (input == "3")
                     {
                         DisplayMoviesByCategory("Horror");
                     }
-                    else if (input.Equals("SciFi", StringComparison.InvariantCultureIgnoreCase))
+                    else if (input == "4")
                     {
                         DisplayMoviesByCategory("SciFi");
                     }//if the user types animated however they'd like display the movies by category. 
