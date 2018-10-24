@@ -25,6 +25,7 @@ namespace Lab11
                     Console.WriteLine("There are 10 movies in this list.");
                     Console.Write("What category are you interested in?(Animated, Drama, Horror, SciFi) ");
                     input = Console.ReadLine();
+
                     DisplayMoviesByCategory();
 
                 } while (!isInputValid);
