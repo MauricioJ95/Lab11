@@ -15,7 +15,7 @@ namespace Lab11
             get
             {
                 return title;
-            }
+            }//my properties for class Movie
             set
             {
                 title = value;
@@ -27,7 +27,7 @@ namespace Lab11
             get
             {
                 return category;
-            }
+            }//my properties for class Movie
             set
             {
                 category = value;
@@ -36,8 +36,7 @@ namespace Lab11
         public Movie(string title, string category)
         {
             this.title = title;
-            this.category = category;
-
+            this.category = category;//calling the properties
         }
     }
 }

@@ -20,25 +20,62 @@ namespace Lab11
             do
             {
                 shouldContinue = false;
-                do
-                {
+
                     Console.WriteLine("There are 10 movies in this list.");
                     Console.Write("What category are you interested in?(Animated, Drama, Horror, SciFi) ");
+                    
+                do
+                {
+                    isInputValid = true;
                     input = Console.ReadLine();
-
-                    DisplayMoviesByCategory();
-
+                    if (input.Equals("Animated", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        DisplayMoviesByCategory("Animated");
+                    }
+                    else if (input.Equals("Drama", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        DisplayMoviesByCategory("Drama");
+                    }
+                    else if (input.Equals("Horror", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        DisplayMoviesByCategory("Horror");
+                    }
+                    else if (input.Equals("SciFi", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        DisplayMoviesByCategory("SciFi");
+                    }//if the user types animated however they'd like display the movies by category. 
+                    else
+                    {
+                        Console.WriteLine("Input is not valid. Please enter Animated, Drama, Horror, SciFi");
+                        isInputValid = false;
+                    }
                 } while (!isInputValid);
+
+                Console.Write("Continue? (y/n):");
+                input = Console.ReadLine();//my continue statement
+                if (input.Equals("y", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    shouldContinue = true; //if the input is true or Y continue running
+                }
             } while (shouldContinue);
         }
 
         public static void DisplayMoviesByCategory(string category)
         {
-             
+            foreach (Movie movie in Movies)
+            {
+                if (movie.Category.Equals(category))
+                {
+                    Console.WriteLine(movie.Title);
+                }
+            }
+            /*ForEach movie in the ArrayList Movies.
+            if the category equals what the user input display movie title.
+            */
         }
 
         static ArrayList Movies = new ArrayList()
-        {
+        {//arraylist of movies and their category
             new Movie("Spirted Away", "Animated"),
             new Movie("Zootopia", "Animated"),
             new Movie("Inside Out", "Animated"),
@@ -52,14 +89,3 @@ namespace Lab11
         };
     }
 }
-
-
-
-
-//store a list of 10 movies and display them by category.
-//user enters category of Animated, Drama, Horror, SciFi
-//ask user to continue
-
-//Movie class should provide two private fields: title and category. Both fields should be String
-//The class should also provide a constructor that accepts a title and category as parameters and uses the values paases to it to intialize its fields
-//user enters a category the program should read out all the movies in said category in an arraylist
